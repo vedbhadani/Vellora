@@ -1,0 +1,292 @@
+.process {
+    background: var(--bg-deep);
+    overflow: hidden;
+    padding: 120px 0;
+    position: relative;
+}
+
+.process__bg-orb {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(181, 136, 99, 0.04) 0%, transparent 60%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.process__header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.process__title-accent {
+    background: linear-gradient(135deg, var(--gold), #e3ca91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+    padding-right: 0.1em;
+}
+
+/* Grid Layout */
+.process__flow {
+    position: relative;
+    width: 100%;
+}
+
+/* Removed old connecting line - replaced with CSS pseudo elements spanning gaps */
+
+.process__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 3D Flip Card Container */
+.process__card-container {
+    perspective: 1000px;
+    height: 320px;
+    /* Fixed height to accommodate content on back */
+    position: relative;
+}
+
+/* Golden lines bridging the gaps */
+.process__card-container:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    /* Match the grid gap */
+    width: 20px;
+    height: 2px;
+    background: var(--gold);
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px var(--gold-glow);
+    z-index: 2;
+}
+
+/* Inner Flipping Card */
+.process__card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+.process__card-container:hover .process__card {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces (Front & Back) */
+.process__card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: rgba(22, 22, 24, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 32px 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.process__card-face:hover {
+    border-color: rgba(181, 136, 99, 0.2);
+    background: rgba(22, 22, 24, 0.9);
+}
+
+.process__card-back {
+    transform: rotateY(180deg);
+}
+
+.process__card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(181, 136, 99, 0.12), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.process__card-container:hover .process__card-glow {
+    opacity: 1;
+}
+
+.process__card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Internal Card Aesthetics: Corner Accents */
+.process__card-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: rgba(211, 195, 185, 0.15);
+    /* faint beige */
+    border-style: solid;
+    border-width: 0;
+    transition: border-color var(--transition-smooth);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.process__card-container:hover .process__card-corner {
+    border-color: var(--gold);
+}
+
+.process__card-corner-tl {
+    top: 16px;
+    left: 16px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+}
+
+.process__card-corner-tr {
+    top: 16px;
+    right: 16px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+}
+
+.process__card-corner-bl {
+    bottom: 16px;
+    left: 16px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.process__card-corner-br {
+    bottom: 16px;
+    right: 16px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+}
+
+/* Icons */
+.process__card-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(181, 136, 99, 0.05);
+    border: 1px solid rgba(181, 136, 99, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all var(--transition-smooth);
+}
+
+.process__card-container:hover .process__card-icon-wrapper {
+    background: rgba(181, 136, 99, 0.1);
+    border-color: rgba(181, 136, 99, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px var(--gold-glow);
+}
+
+.process__card-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--gold-light);
+    transition: transform var(--transition-smooth);
+}
+
+.process__card-container:hover .process__card-icon {
+    transform: scale(1.1);
+    color: var(--gold);
+}
+
+/* Number */
+.process__card-number {
+    font-family: var(--font-mono);
+    font-size: 3.5rem;
+    /* slightly smaller to fit icon */
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    /* slightly smaller margin */
+    transition: all 0.4s ease;
+}
+
+.process__card-number-bg {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.02);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.process__card-container:hover .process__card-number {
+    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+}
+
+.process__card-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.process__card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .process__grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .process__connecting-line {
+        display: none;
+        /* Hide on wrapped layouts */
+    }
+}
+
+@media (max-width: 768px) {
+    .process__card {
+        padding: 32px 24px;
+    }
+}

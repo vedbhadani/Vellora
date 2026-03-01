@@ -1,0 +1,221 @@
+.portfolio {
+    background: var(--bg-secondary);
+    overflow: hidden;
+    padding: 120px 0;
+}
+
+.portfolio__bg-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    pointer-events: none;
+}
+
+.portfolio__header {
+    margin-bottom: 64px;
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.portfolio__card {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    transition: all 0.6s var(--ease-out);
+    text-decoration: none;
+    position: relative;
+}
+
+.portfolio__card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(181, 136, 99, 0.1);
+}
+
+.portfolio__preview {
+    position: relative;
+    padding: 36px 32px 0;
+    min-height: 240px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.portfolio__mockup {
+    width: 88%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 10px 10px 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: none;
+    overflow: hidden;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.portfolio__card:hover .portfolio__mockup {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.portfolio__mockup-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.portfolio__mockup-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.portfolio__mockup-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.portfolio__mockup-dots span:first-child {
+    background: rgba(255, 100, 100, 0.4);
+}
+
+.portfolio__mockup-dots span:nth-child(2) {
+    background: rgba(255, 200, 100, 0.4);
+}
+
+.portfolio__mockup-dots span:last-child {
+    background: rgba(100, 255, 100, 0.4);
+}
+
+.portfolio__mockup-url {
+    flex: 1;
+    text-align: center;
+}
+
+.portfolio__mockup-url span {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.04em;
+}
+
+.portfolio__mockup-body {
+    padding: 14px;
+}
+
+.portfolio__mockup-hero {
+    height: 32px;
+    background: linear-gradient(90deg, rgba(181, 136, 99, 0.15), rgba(181, 136, 99, 0.05));
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.portfolio__mockup-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.portfolio__mockup-line {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.portfolio__mockup-grid {
+    display: flex;
+    gap: 6px;
+}
+
+.portfolio__mockup-grid div {
+    flex: 1;
+    height: 28px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.portfolio__card-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--beige);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.4s var(--ease-out);
+}
+
+.portfolio__card:hover .portfolio__card-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio__info {
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio__info-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.portfolio__name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.portfolio__category {
+    font-size: 0.78rem;
+    color: var(--taupe);
+}
+
+.portfolio__metric-wrap {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.portfolio__metric {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+}
+
+.portfolio__metric-label {
+    font-size: 0.68rem;
+    color: var(--taupe);
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+    .portfolio__grid {
+        grid-template-columns: 1fr;
+    }
+}

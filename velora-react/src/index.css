@@ -1,0 +1,361 @@
+/* ===========================
+   VELORA TECH — Premium Design System
+   New Palette: Dark Teal, Slate, Taupe, Beige, Golden Brown
+   =========================== */
+
+:root {
+  /* Core Palette */
+  --bg-deep: #0D1B1C;
+  --bg-primary: #102324;
+  --bg-secondary: #161618;
+  --bg-card: #1A2E30;
+  --slate: #3D4D55;
+  --taupe: #A79E9C;
+  --beige: #D3C3B9;
+  --gold: #B58863;
+  --gold-light: #C9A07A;
+  --gold-dim: rgba(181, 136, 99, 0.15);
+  --gold-glow: rgba(181, 136, 99, 0.25);
+  --text-primary: #F0EDE8;
+  --text-secondary: #A79E9C;
+  --text-muted: #6B7280;
+  --border: rgba(167, 158, 156, 0.1);
+  --border-hover: rgba(181, 136, 99, 0.35);
+  --glass: rgba(16, 35, 36, 0.6);
+  --glass-border: rgba(211, 195, 185, 0.08);
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --heading-tracking: -0.03em;
+  --heading-tracking-wide: 0.12em;
+
+  /* Spacing */
+  --section-padding: 140px 0;
+  --container-max: 1200px;
+  --container-padding: 0 clamp(24px, 5vw, 80px);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.25s var(--ease-smooth);
+  --transition-smooth: 0.5s var(--ease-out);
+  --transition-slow: 1s var(--ease-out);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ===========================
+   Layout
+   =========================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: var(--heading-tracking-wide);
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* ===========================
+   Button System
+   =========================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 60px;
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--bg-deep);
+  box-shadow: 0 4px 20px var(--gold-dim);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--gold-glow);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary span,
+.btn-primary svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--beige);
+  border: 1px solid rgba(211, 195, 185, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  border-color: rgba(211, 195, 185, 0.4);
+  background: rgba(211, 195, 185, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Animated backgrounds
+   =========================== */
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.gradient-orb--gold {
+  background: radial-gradient(circle, rgba(181, 136, 99, 0.15), transparent 70%);
+}
+
+.gradient-orb--teal {
+  background: radial-gradient(circle, rgba(16, 35, 36, 0.4), transparent 70%);
+}
+
+.gradient-orb--slate {
+  background: radial-gradient(circle, rgba(61, 77, 85, 0.2), transparent 70%);
+}
+
+/* ===========================
+   Noise texture overlay
+   =========================== */
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes subtleFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(10px, -15px);
+  }
+
+  66% {
+    transform: translate(-8px, 8px);
+  }
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-15px, 15px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(20px, 10px) scale(1.02);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes lineDraw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--taupe);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: var(--bg-deep);
+}

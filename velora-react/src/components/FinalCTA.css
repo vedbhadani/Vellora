@@ -1,0 +1,314 @@
+.final-cta {
+    position: relative;
+    padding: 160px 0;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.final-cta__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.final-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+.final-cta__orb--1 {
+    width: 500px;
+    height: 500px;
+    top: -20%;
+    left: 20%;
+    background: radial-gradient(circle, rgba(181, 136, 99, 0.1), transparent 70%);
+    animation: orbFloat 18s ease-in-out infinite;
+}
+
+.final-cta__orb--2 {
+    width: 400px;
+    height: 400px;
+    bottom: -10%;
+    right: 15%;
+    background: radial-gradient(circle, rgba(16, 35, 36, 0.3), transparent 70%);
+    animation: orbFloat 22s ease-in-out infinite reverse;
+}
+
+.final-cta__orb--3 {
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    right: 40%;
+    background: radial-gradient(circle, rgba(61, 77, 85, 0.12), transparent 70%);
+    animation: orbFloat 15s ease-in-out infinite 3s;
+}
+
+.final-cta__grid-lines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 clamp(24px, 5vw, 80px);
+}
+
+.final-cta__grid-line {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(167, 158, 156, 0.04), transparent);
+}
+
+.final-cta__content {
+    position: relative;
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto;
+}
+
+.final-cta__title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: var(--heading-tracking);
+    line-height: 1.08;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.final-cta__accent {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--beige));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s ease infinite;
+}
+
+.final-cta__subtitle {
+    font-size: 1.1rem;
+    color: var(--taupe);
+    line-height: 1.7;
+    margin-bottom: 44px;
+}
+
+.final-cta__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.final-cta__btn {
+    padding: 18px 40px;
+}
+
+.final-cta__note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--taupe);
+    letter-spacing: 0.02em;
+}
+
+.final-cta__note-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold-glow);
+}
+
+@media (max-width: 768px) {
+    .final-cta {
+        padding: 100px 0;
+    }
+
+    .final-cta__actions {
+        flex-direction: column;
+    }
+}
+
+/* Modal Styles */
+.cta-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cta-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+}
+
+.cta-modal__content {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    z-index: 10;
+}
+
+.cta-modal__card {
+    position: relative;
+    background: #0a0a0b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 40px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+}
+
+.cta-modal__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    padding: 8px;
+    z-index: 20;
+}
+
+.cta-modal__close:hover {
+    color: var(--gold);
+}
+
+.cta-modal__header {
+    margin-bottom: 40px;
+}
+
+.cta-modal__header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 12px 0 8px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.cta-modal__header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.cta-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cta-modal__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.cta-modal__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cta-modal__group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.cta-modal__group input,
+.cta-modal__group textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 16px;
+    color: var(--text-primary);
+    border-radius: 0;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    font-family: inherit;
+}
+
+.cta-modal__group input:focus,
+.cta-modal__group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(181, 136, 99, 0.05);
+}
+
+.cta-modal__submit {
+    width: 100%;
+    margin-top: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cta-modal__submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.cta-modal__error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.cta-modal__success {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.cta-modal__success-icon {
+    color: var(--gold);
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 15px rgba(181, 136, 99, 0.4));
+}
+
+.cta-modal__success h3 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+.cta-modal__success p {
+    color: var(--text-secondary);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 640px) {
+    .cta-modal__row {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-modal__card {
+        padding: 40px 24px;
+    }
+
+    .cta-modal__header h2 {
+        font-size: 2rem;
+    }
+}

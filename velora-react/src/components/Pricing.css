@@ -1,0 +1,397 @@
+.pricing {
+    background: var(--bg-deep);
+    overflow: hidden;
+    padding: 140px 0;
+    position: relative;
+}
+
+.pricing__orb-left,
+.pricing__orb-right {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pricing__orb-left {
+    top: 20%;
+    left: -15%;
+    background: radial-gradient(circle, rgba(61, 77, 85, 0.12), transparent 70%);
+}
+
+.pricing__orb-right {
+    bottom: 5%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(181, 136, 99, 0.08), transparent 70%);
+}
+
+.pricing__header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing__header .section-subtitle {
+    margin: 0 auto;
+}
+
+/* Pricing Layout Main Container */
+.pricing__layout {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+/* Category Headers */
+.pricing__category-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.pricing__category-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.pricing__category-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(181, 136, 99, 0.3), transparent);
+}
+
+/* Grids */
+.pricing__grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
+    align-items: stretch;
+}
+
+.pricing__grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+/* Universal Card Base */
+.pricing__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(22, 22, 24, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 32px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing__card:hover {
+    background: rgba(22, 22, 24, 0.8);
+    border-color: rgba(181, 136, 99, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(181, 136, 99, 0.05);
+}
+
+.pricing__card--featured {
+    background: rgba(181, 136, 99, 0.05);
+    border-color: rgba(181, 136, 99, 0.2);
+    transform: scale(1.02);
+    position: relative;
+    z-index: 2;
+}
+
+.pricing__card--featured:hover {
+    transform: scale(1.02) translateY(-4px);
+    border-color: rgba(181, 136, 99, 0.5);
+}
+
+/* Golden Corners */
+.pricing__card-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: rgba(181, 136, 99, 0.3);
+    border-style: solid;
+    border-width: 0;
+    transition: all 0.4s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.pricing__card:hover .pricing__card-corner {
+    border-color: var(--gold);
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 0 8px rgba(181, 136, 99, 0.5));
+}
+
+.pricing__card-corner-tl {
+    top: -1px;
+    left: -1px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+}
+
+.pricing__card-corner-tr {
+    top: -1px;
+    right: -1px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+.pricing__card-corner-bl {
+    bottom: -1px;
+    left: -1px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.pricing__card-corner-br {
+    bottom: -1px;
+    right: -1px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+}
+
+/* Badge for Popular Plan */
+.pricing__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--bg-deep);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(181, 136, 99, 0.4);
+}
+
+/* Card Typography Sections */
+.pricing__card-header {
+    margin-bottom: 32px;
+}
+
+.pricing__card-name {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.pricing__card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    min-height: 72px;
+    /* aligns heights */
+}
+
+.pricing__card-price-container {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricing__card-price {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold-light);
+}
+
+.pricing__card-body {
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+/* Feature List */
+.pricing__features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pricing__features-list li {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    opacity: 0.9;
+}
+
+.pricing__features-list li svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Card Footer & Button */
+.pricing__card-footer {
+    margin-top: auto;
+}
+
+.pricing__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: var(--text-primary);
+    padding: 16px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.pricing__btn:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(181, 136, 99, 0.4);
+}
+
+.pricing__btn--outline {
+    background: transparent;
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.pricing__btn--outline:hover {
+    background: rgba(181, 136, 99, 0.1);
+    color: var(--gold-light);
+    box-shadow: none;
+    border-color: var(--gold-light);
+}
+
+/* Custom Enterprise Row (Full Width Variant) */
+.pricing__card--custom {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 48px;
+    background: rgba(181, 136, 99, 0.03);
+}
+
+.pricing__custom-left {
+    flex: 1.2;
+}
+
+.pricing__custom-left .pricing__card-name {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.pricing__custom-left .pricing__card-price {
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+}
+
+.pricing__custom-left .pricing__card-desc {
+    min-height: auto;
+    font-size: 1.05rem;
+}
+
+.pricing__custom-middle {
+    flex: 1.5;
+}
+
+.pricing__custom-middle .pricing__features-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 32px;
+}
+
+.pricing__custom-middle .pricing__features-list li {
+    flex: 1 1 calc(50% - 32px);
+}
+
+.pricing__custom-right {
+    flex: 0.8;
+}
+
+/* Background Structural Grid Lines */
+.pricing__grid-lines {
+    position: absolute;
+    top: 0;
+    bottom: -100px;
+    /* extend below content */
+    left: 0;
+    right: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pricing__grid-line {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 10%,
+            rgba(255, 255, 255, 0.03) 90%,
+            transparent 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .pricing__grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing__card--featured {
+        transform: scale(1);
+    }
+
+    .pricing__card--featured:hover {
+        transform: translateY(-4px);
+    }
+
+    .pricing__card--custom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pricing__custom-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pricing__grid-3,
+    .pricing__grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing__custom-middle .pricing__features-list {
+        flex-direction: column;
+    }
+}

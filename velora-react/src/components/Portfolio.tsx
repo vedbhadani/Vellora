@@ -35,6 +35,7 @@ const projects = [
 ];
 
 const Portfolio = () => {
+    const scrollTo = useScrollTo();
     return (
         <section className="portfolio section" id="portfolio">
             <div className="portfolio__bg-line" />
